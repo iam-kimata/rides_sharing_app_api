@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// for displaying login page
+Route::get('/', [AdminController::class, 'login'] )->name('login');
+
+// for displaying dashboard page
+Route::get('dashboard', [AdminController::class, 'dashboard'] )->name('dashboard');
+
+// for displaying students page
+Route::get('students', [AdminController::class, 'students'] )->name('students');
+
+// for displaying drivers page
+Route::get('drivers', [AdminController::class, 'drivers'] )->name('drivers');
+
+// for displaying routes page
+Route::get('trips', [AdminController::class, 'trips'] )->name('trips');
+
+// for displaying edit routes page
+Route::get('editTrip', [AdminController::class, 'editTrip'] )->name('editTrip');
